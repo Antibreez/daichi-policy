@@ -1,0 +1,171 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  line-height: 150%;
+  counter-reset: list;
+}
+
+main {
+  max-width: 1000px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 120%;
+  text-align: center;
+  margin: 0 0 48px;
+}
+
+p {
+  text-indent: 48px;
+  margin: 0 0 24px;
+}
+
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ol ol {
+  counter-reset: sub-list;
+}
+
+ol > li:not(:last-child) {
+  margin: 0 0 48px;
+}
+
+ol ol > li:not(:last-child) {
+  margin: 0 0 8px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+ol > li > *:first-child::before {
+  counter-increment: list;
+  content: counter(list)".";
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+li > * {
+  text-indent: 0;
+}
+
+li > *:first-child {
+  display: inline-block;
+}
+
+li > *:not(:last-child) {
+  margin: 0 0 8px;
+}
+
+li > *:last-child {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul > li {
+  position: relative;
+  padding-left: 48px;
+}
+
+li:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+ul > li::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 16px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+ul.dashed > li {
+  padding-left: 24px;
+}
+
+ul.dashed > li::before {
+  content: "-";
+  top: 0;
+  left: 8px;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background-color: unset;
+}
+
+ol ol > li > *:first-child::before {
+  counter-increment: sub-list;
+  content: counter(list)"."counter(sub-list)".";
+  font-weight: normal;
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 12px;
+  }
+
+  main {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  h1 {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+
+  p {
+    text-indent: 24px;
+    margin: 0 0 24px;
+  }
+
+  li > * {
+    text-indent: 0;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+
+  ul > li {
+    position: relative;
+    padding-left: 24px;
+  }
+  
+  ul > li::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 4px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: black;
+  }
+
+  ol > li:not(:last-child) {
+    margin: 0 0 36px;
+  }
+}
